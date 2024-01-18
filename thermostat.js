@@ -2,6 +2,7 @@ class Thermostat {
     constructor() {
         this.temperature = 20;
         this.powerSavingMode = true;
+        this.currentEnergyUsage = 'medium-usage'
     }
 
     getTemperature() {
@@ -28,6 +29,17 @@ class Thermostat {
 
     reset() {
         this.temperature = 20
+    }
+
+    getCurrentEnergyUsage() {
+        if (this.temperature < 18) {
+            this.currentEnergyUsage = 'low-usage'
+        } else if (18 <= this.temperature && this.temperature <= 25) {
+            this.currentEnergyUsage = 'medium-usage'
+        } else if (this.temperature > 25) {
+            this.currentEnergyUsage = 'high-usage'
+        }
+        return this.currentEnergyUsage
     }
 
 }

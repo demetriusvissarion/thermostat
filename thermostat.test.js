@@ -54,6 +54,24 @@ describe('Unit tests for the thermostat class', () => {
         expect(thermostat.getTemperature()).toEqual(10);
     });
 
-});
+    it('tests current energy usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage', () => {
+        const thermostat = new Thermostat();
+        for (let i = 0 ; i < 15 ; i++) {
+            thermostat.down();
+        }
+        expect(thermostat.getCurrentEnergyUsage()).toEqual('low-usage');
 
-//You can ask about the thermostat's current energy usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage.
+        for (let i = 0 ; i < 10 ; i++) {
+            thermostat.up();
+        }
+        expect(thermostat.getCurrentEnergyUsage()).toEqual('medium-usage');
+
+        thermostat.setPowerSavingMode(false);
+        for (let i = 0 ; i < 15 ; i++) {
+            thermostat.up();
+        }
+        expect(thermostat.getTemperature()).toEqual(32);
+        expect(thermostat.getCurrentEnergyUsage()).toEqual('high-usage');
+    });
+
+});
