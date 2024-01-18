@@ -1,20 +1,26 @@
 class Thermostat {
     constructor() {
-        this.initialTemperature = 20;
+        this.temperature = 20;
+        this.powerSavingMode = false;
     }
 
     getTemperature() {
-        return this.initialTemperature
+        return this.temperature
     }
 
     up() {
-        this.initialTemperature += 1
+        if (this.powerSavingMode = true && this.temperature < 25) {
+            this.temperature += 1
+        }
     }
 
     down() {
-        this.initialTemperature -= 1
+        this.temperature -= 1
     }
-
+    
+    setPowerSavingMode(input) {
+        this.powerSavingMode = input
+    }
 
 }
 

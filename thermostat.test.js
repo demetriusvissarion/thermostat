@@ -20,21 +20,20 @@ describe('Unit tests for the thermostat class', () => {
         thermostat.down()
         expect(thermostat.getTemperature()).toEqual(21);
     });
+    
+    it('set PowerSavingMode to true, which limits the max temperature to 25', () => {
+        const thermostat = new Thermostat();
+        thermostat.setPowerSavingMode(true);
+        for (let i = 0 ; i < 10 ; i++) {
+            thermostat.up();
+        }
 
+        expect(thermostat.getTemperature()).toEqual(25);
+    });
 
 });
 
-
-
-
 ///////// Desired output:
-
-// thermostat.setPowerSavingMode(true); // PSM is now on, max temperature is 25
-
-// for (let i = 0 ; i < 10 ; i++) {
-//   thermostat.up();
-// }
-
 // thermostat.getTemperature(); // should be 25 (max reached)
 
 // thermostat.setPowerSavingMode(false); // PSM is now off, max temperature is no more 25
