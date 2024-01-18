@@ -37,8 +37,16 @@ describe('Unit tests for the thermostat class', () => {
         expect(thermostat.getTemperature()).toEqual(20);
     });
 
+    it('tests if temperature cannot go below the minimum 10', () => {
+        const thermostat = new Thermostat();
+        for (let i = 0 ; i < 15 ; i++) {
+            thermostat.down();
+        }
+        expect(thermostat.getTemperature()).toEqual(10);
+    });
+
 });
 
-///////// Desired output:
-// thermostat.reset();
-// thermostat.getTemperature(); // should be back to 20
+// test for minimum temperature 10
+// If power saving mode is off, the maximum temperature is 32 degrees
+//You can ask about the thermostat's current energy usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage.
