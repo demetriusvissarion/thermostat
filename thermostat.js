@@ -3,14 +3,16 @@ class Thermostat {
         this.initialTemperature = 20;
     }
 
+    getTemperature() {
+        return this.initialTemperature
+    }
+
     up() {
         this.initialTemperature += 1
-        return this.initialTemperature
     }
 
     down() {
         this.initialTemperature -= 1
-        return this.initialTemperature
     }
 
 
