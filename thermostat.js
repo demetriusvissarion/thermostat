@@ -24,7 +24,14 @@ class Thermostat {
     }
     
     setPowerSavingMode(input) {
-        this.powerSavingMode = input
+        if (input === true && this.temperature > 25) {
+            this.powerSavingMode = input
+            this.temperature = 25;
+        } else if (input === true && this.temperature <= 25) {
+            this.powerSavingMode = input
+        } else if (input === false) {
+            this.powerSavingMode = input
+        }
     }
 
     reset() {

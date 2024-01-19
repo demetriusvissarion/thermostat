@@ -14,3 +14,8 @@ $ sudo npm install -g jest
 
 # Run our tests
 $ jest
+
+# 07_web_server
+$ sudo npm add express
+$ node server.js
+got to: http://localhost:3000
